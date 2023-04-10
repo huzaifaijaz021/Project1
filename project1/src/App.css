@@ -1,0 +1,65 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.App{
+  display:flex;
+  justify-content: center;
+  margin-top: 105px;
+}
+.text-center {
+  display: flex;  
+justify-content: center; 
+/* align-items: center; */
+/* align-items: center; */
+margin: 5px auto;
+}
+
+body{
+  font-family:cursive;
+  background-color: #a7d4de;
+  background-image: url("https://source.unsplash.com/user/erondu/1600x1200");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+
+}
+button:hover{
+  color: rgb(255, 255, 255);
+  background-color: rgb(29, 18, 18);
+}
+.logIn-form{
+  margin: 100px auto;
+  width: 200px;
+  height: 250px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+.logIn-form p{
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color:#B8BFC6;
+  padding: 10px 10px;
+}
+.logIn-form input{
+ display: block; 
+ width: 80%;
+ height: 40px;
+ margin: 10px auto;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ padding: 0px 10px;
+ font-size: 16px;
+ color:  black;
+}
+.logIn-form button{
+  background-color: #8EC1D6;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 7px;
+  padding: 5px 10px;
+  border: none;
+}
