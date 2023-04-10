@@ -9,7 +9,7 @@ const userData = new Schema({
     phone: String,
     website: String,
     company: String
-});
+}, { timestamps: true });
 
 
 // Export function to create "SomeModel" model class

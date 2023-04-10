@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-
 const bodyParser = require('body-parser');
 
 // require('./Route/route');
@@ -21,15 +20,10 @@ app.use(router);
 //To access the database of User
 // database();
 
-
-
-
 // app.use('/api', (req, res) => {
 //     res.json('Hello');
 //     console.log('done');
 // });
-
-
 
 app.use('*', (req, res) => {
     res.json('page is not found');

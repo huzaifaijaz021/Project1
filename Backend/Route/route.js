@@ -26,24 +26,33 @@ agenda.define('show', async (job) => {
             const data = response.data;
             for (let i = 0; i < data.length; i++) {
                 const user = await userInfo.findOne({ email: data[i].email })
-                if (!user) {
+                if (user) {
                     const item = data[i];
                     // Create a new instance of the Mongoose model with the data
-                    const newData = new userInfo
-                        ({
+                    const newData = await userInfo.updateOne
+                        ({ email: item.email }, {
                             name: item.name,
                             username: item.username,
-                            email: item.email,
+                            // email: item.email,
                             address: item.address.city,
                             phone: item.phone,
                             website: item.website,
                             company: item.company.name
                         })
-                    await newData.save();
-                    console.log("ADDED DATA SUCCESSFULLY")
+                    console.log("Updated Data Successfully ")
                 } else {
-
-                    console.log("ADDED NEW DATA FAILED")
+                    const item = data[i];
+                    const newUser = new userInfo({
+                        name: item.name,
+                        username: item.username,
+                        email: item.email,
+                        address: item.address.city,
+                        phone: item.phone,
+                        website: item.website,
+                        company: item.company.name
+                    })
+                    const savedUser = await newUser.save();
+                    console.log("Created data Successfully")
                     // userInfo.updateOne({})
                 }
             }
@@ -161,5 +170,4 @@ router.post('/insert', async (req, res) => {
 })
 
 module.exports = router;
-
 
