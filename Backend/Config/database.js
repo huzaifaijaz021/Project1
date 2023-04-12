@@ -9,7 +9,7 @@ const dbString = process.env.DATABASE_URL;
 
 mongoose.connect(dbString);
 
-
+//Connect to the Database
 const db = mongoose.connection;
 db.on('error', (error) => {
     console.log(error);

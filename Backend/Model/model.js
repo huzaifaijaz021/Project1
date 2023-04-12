@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//create a  schema of Database
 const Schema = mongoose.Schema;
 const userData = new Schema({
     name: String,
@@ -12,8 +13,8 @@ const userData = new Schema({
 }, { timestamps: true });
 
 
-// Export function to create "SomeModel" model class
-// userData.index({ "_id": 1 }, { unique: true });
+// Export function to create "SomeModel" model class 
+//Create  a Model of Database
 const userInfo = mongoose.model("UserDetails", userData);
 module.exports = userInfo;
 

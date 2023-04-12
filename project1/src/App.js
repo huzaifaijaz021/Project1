@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Axios from 'axios';
 import './App.css';
 
+
+//use Usestate hook to change the state
 function App() {
     const [name, setName] = useState("")
     const [username, setUsername] = useState("")
@@ -11,6 +13,7 @@ function App() {
     const [website, setWebsite] = useState("")
     const [company, setCompany] = useState("")
 
+    //this function call when we hit the button
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -26,7 +29,6 @@ function App() {
     }
 
     return (
-
         <div className='App'>
             <header className='App-header'>
                 <div className='"logIn-form"'>

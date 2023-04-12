@@ -5,9 +5,12 @@ const bodyParser = require('body-parser');
 
 // require('./Route/route');
 const router = require('./Route/route');
+
 // const userInfo = require('./Model/model')  // if you want to access model here
+
 // const database = require('./Config/database')
 require('./Config/database');
+
 const port = 4000;
 app.use(express.json());
 app.use(cors());

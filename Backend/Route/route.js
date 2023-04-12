@@ -18,6 +18,8 @@ const agenda = new Agenda({
     db: { address: DATABASE_URL, collection: 'UserDetails' },
 });
 
+
+//Agenda Define that show the data after 24 hourse repeatedly
 agenda.define('show', async (job) => {
     try {
         const response = await axios.get('https://jsonplaceholder.typicode.com/users');
@@ -29,6 +31,7 @@ agenda.define('show', async (job) => {
                 if (user) {
                     const item = data[i];
                     // Create a new instance of the Mongoose model with the data
+                    //If User Email  is already exist then update the User Entry
                     const newData = await userInfo.updateOne
                         ({ email: item.email }, {
                             name: item.name,
@@ -40,6 +43,7 @@ agenda.define('show', async (job) => {
                             company: item.company.name
                         })
                     console.log("Updated Data Successfully ")
+                    //If New User Enter then Create the User Entry
                 } else {
                     const item = data[i];
                     const newUser = new userInfo({
@@ -63,7 +67,7 @@ agenda.define('show', async (job) => {
     }
 });
 
-
+//Agenda is calling
 (async function () {
     console.log("agenda is started")
     await agenda.start();
@@ -76,7 +80,7 @@ router.get('/', function (req, res, next) {
     res.end();
 })
 
-//for get the data from the database
+//for get/show  the data from the database
 router.get('/showdata', async (req, res) => {
     try {
         const data = await userInfo.find();
@@ -131,7 +135,7 @@ router.post('/adddata', async (req, res) => {
 });
 
 
-//To Take the Frontend of the Data
+//To Take the Frontend of the Data to store to the database
 router.post('/insert', async (req, res) => {
 
     try {
