@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 //create a  schema of Database
 const Schema = mongoose.Schema;
@@ -16,5 +16,5 @@ const userData = new Schema({
 // Export function to create "SomeModel" model class 
 //Create  a Model of Database
 const userInfo = mongoose.model("UserDetails", userData);
-module.exports = userInfo;
+export default userInfo;
 

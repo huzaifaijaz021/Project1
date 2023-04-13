@@ -1,32 +1,24 @@
-const express = require('express');
+import "dotenv/config.js"
+import express from 'express';
 const app = express();
-const cors = require('cors');
-const bodyParser = require('body-parser');
-
-// require('./Route/route');
-const router = require('./Route/route');
-
-// const userInfo = require('./Model/model')  // if you want to access model here
-
-// const database = require('./Config/database')
-require('./Config/database');
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import setupDatabase from './Config/database.js';
+import router from './Route/route.js'
+import startAgenda from './Agenda.js/agenda.js'
 
 const port = 4000;
+
 app.use(express.json());
 app.use(cors());
+
+setupDatabase()
+startAgenda()
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(router);
-
-//To access the database of User
-// database();
-
-// app.use('/api', (req, res) => {
-//     res.json('Hello');
-//     console.log('done');
-// });
 
 app.use('*', (req, res) => {
     res.json('page is not found');
